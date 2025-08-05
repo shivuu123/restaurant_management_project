@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaraunt Menu</title>
+    </head>
+    <body>
+        <h1>Our Menu</h1>
+        <ul id="menu-list">
+            <!-- Menu list items -->
+        </ul>
+
+        <script>
+            fetch('api/menu/')
+            .then(response => response.json())
+            .then(data => {
+            const menuList = document.getElementById('menu-list');
+            data.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${item.name}</strong> - ${item.price}<br><em>${item.description}</em>`;
+            menuList.appendChild(li);
+              });
+              })
+              .catch(error => {
+              console.error('Error fetching menu:' , error);
+              });
+
+              </script>
+    </body>
+</html>
