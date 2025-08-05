@@ -23,4 +23,6 @@ urlpatterns = [
     path('api/accounts/',include('account.urls')),
     path('api/products/',include('products.urls')),
     path('api/orders/',include('orders.urls')),
+    path('menu/', MenuAPIView.as_view(), name='menu'),
+    path('api/',include('resaurant.urls')),
 ]
