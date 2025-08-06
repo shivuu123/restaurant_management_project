@@ -1,29 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Restaraunt Menu</title>
-    </head>
+        <meta charset="UTF-8">
+        <title>Restaurant Menu</title>
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+
+        <style>
+            body {
+            background-color: #f9f9f9;
+            fony-family: 'Segoe UI', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            }
+
+            .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+            }
+
+            h1{
+            font-size: 2.5rem;
+            margin-border: 40px;
+            color: #d35400;
+            }
+
+            .menu-item {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.2s;
+            }
+
+            .menu-item:hover{
+            transform: translateY(-5px);
+            }
+
+            .menu-item h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            }
+
+            .menu-item p{
+            margin: 5px 0;
+            }
+
+            .price {
+            color: #27ae60;
+            font-weight: bold;
+            }
+
+            </style>
+
+    </head>>
+
     <body>
-        <h1>Our Menu</h1>
-        <ul id="menu-list">
-            <!-- Menu list items -->
-        </ul>
+        <div class="container">
+            <h1> Welcome to our Restaurant</h1>
+            <div class="menu-item">
+                <h2>Paneer Butter Masala</h2>
+                <p>A rich and creamy tomato-based curry with soft paneer cubes.</p>
+                <p class="price">$180</p>
+            </div>
 
-        <script>
-            fetch('api/menu/')
-            .then(response => response.json())
-            .then(data => {
-            const menuList = document.getElementById('menu-list');
-            data.forEach(item => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${item.name}</strong> - ${item.price}<br><em>${item.description}</em>`;
-            menuList.appendChild(li);
-              });
-              })
-              .catch(error => {
-              console.error('Error fetching menu:' , error);
-              });
+            <div class="menu-item">
+                <h2>Veg Biryani</h2>
+                <p>Spiced rice with assorted vegetables served eith raita.</p>
+                <p class="price">$150</p>
+            </div>
 
-              </script>
+        <div class="menu-item">
+            <h2>Chocloate Brownie</h2>
+            <p>Warm Chocloate Brownie topped with vanilla ice cream.</p>
+            <p class="price">$90</p>
+        </div>
+        </div>
     </body>
 </html>
