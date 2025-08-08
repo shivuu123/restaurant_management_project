@@ -5,6 +5,9 @@
         <title>{{ restaurant_name }}</title>
      <style>
         body {
+        background-color: #fafafa;
+        color: #333;
+        margin: 0;
         font-family: Arial, sans-serif;
         text-align: center; 
         padding: 50px;
@@ -17,6 +20,14 @@
         padding: 30px; 
         border-radius: 8px;
         box-shadow: 02px 8px rgba(0,0,0.1);
+        }
+        img.logo {
+        max-width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         }
 
         h1{
@@ -41,6 +52,7 @@
     </head>
     <body>
         <div class="container">
+            <img src= "{% static 'images/logo.png' %}" alt="{{ restaurant_name }} Logo" class="logo" />
             <h1>Welcome to {{restaurant_name}}</h1>
             <p>We're happy to serve you!</p>
         {% if phone_number %}
