@@ -3,14 +3,52 @@
     <head>
         <meta charset="UTF-8">
         <title>{{ restaurant_name }}</title>
+     <style>
+        body {
+        font-family: Arial, sans-serif;
+        text-align: center; 
+        padding: 50px;
+        }
+
+        div.container {
+        max-width: 700px; 
+        margin: 0 auto; 
+        background: white; 
+        padding: 30px; 
+        border-radius: 8px;
+        box-shadow: 02px 8px rgba(0,0,0.1);
+        }
+
+        h1{
+        color: #e67e22; 
+        margin-bottom: 20px;
+        }
+
+        p{
+        color: #555; 
+        font-size: 18px;
+        }
+        
+        footer{
+            margin-top: 25px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            color: #666;
+            font-size: 12px;
+            border-radius: 4px;
+            }
+            </style>
     </head>
-    <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-        <div style="max-width: 700px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow; 02px 8px rgba(0,0,0.1);">
-        <h1 style="color: #e67e22; margin-bottom: 20px;">Welcome to {{restaurant_name}}</h1>
-        <p style="color: #555; font-size: 18px;">We're happy to serve you!</p>
+    <body>
+        <div class="container">
+            <h1>Welcome to {{restaurant_name}}</h1>
+            <p>We're happy to serve you!</p>
         {% if phone_number %}
         <p> Contact us: {{ phone_number }}</p>
         {% endif %}
         </div>
+        <footer>
+            &copy; {{ now|date:"Y" }} {{ restaurant_name}}. All rights reserved.
+        </footer>
     </body>
 </html>
