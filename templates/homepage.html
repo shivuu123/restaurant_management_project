@@ -29,6 +29,21 @@
         margin-left: auto;
         margin-right: auto;
         }
+        .search-bar {
+        padding: 8px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        }
+
+        .search-btn {
+        padding: 8px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
 
         h1{
         color: #e67e22; 
@@ -55,6 +70,10 @@
             <img src= "{% static 'images/logo.png' %}" alt="{{ restaurant_name }} Logo" class="logo" />
             <h1>Welcome to {{restaurant_name}}</h1>
             <p>We're happy to serve you!</p>
+            <form method="GET" action="">
+                <input type="text" name="q" placeholder="Search menu items..." class="search-bar">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
         {% if phone_number %}
         <p> Contact us: {{ phone_number }}</p>
         {% endif %}
