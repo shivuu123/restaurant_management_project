@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Feedback</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+        <h2>Leave Your Feedback</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="padding: 8px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Submit
+            </button>
+        </form>
+        <footer style="margin-top: 20px; font-size: 12px; color: #777;">
+            &copy; {{ now|date:"Y" }} {{ restaurant_name }}. All rights reserved.
+        </footer>
+    </body>
+</html>
