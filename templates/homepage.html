@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>{{ restaurant_name }}</title>
+        <title>{%block title%}{{ restaurant_name }}{% endblock %}</title>
      <style>
         body {
         background-color: #fafafa;
@@ -78,6 +78,7 @@
         <p> Contact us: {{ phone_number }}</p>
         {% endif %}
         </div>
+        {% block content %}{% endblock %}
         <footer>
             &copy; {{ now|date:"Y" }} {{ restaurant_name}}. All rights reserved.
         </footer>
