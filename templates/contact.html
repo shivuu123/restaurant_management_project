@@ -17,6 +17,18 @@
                 <textarea id="message" name="message"></textarea><br><br>
                 <button type="submit">Submit</button>
             </form>
+            <div class="restaurant-location" style="margin-top: 30px; text-align: center;">
+                <h2>Our Location</h2>
+                <p>XXX Main Street, XXXXXXXXX, XXXXXXX, XXXXX</p>
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=XXXXXXXXXXXXXXX"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
         </div>
         <footer style="background-color: #f8f8f8; padding: 10px; text-align: center; margin-top: 20px;">
             &copy; {{ now|date:"Y" }} {{ restaurant_name }}. All rights are reserved.
