@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact US - {{ restaurant_name }}</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <form id="contactForm" method="POST" action="">
+                {% csrf_token %}
+                <label for="name">Name:</label><br>
+                <input type-"text" id="name" name="name"><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message"></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <footer style="background-clor: #f8f8f8; padding: 10px; text-align: center; margin-top: 20px;">
+            &copy; {{ now|date:"Y" }} {{ restaurant_name }}. All rights are reserved.
+            <p>Openeing Hours: Mon-Fri: 10am-10pm, Sat-Sun: 10am-10pm</p>
+        </footer>
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            
+            if (name == "" || email === "") {
+            alert("Please fill in both Name and Email Fields.");
+            event.preventDefault();
+            }
+        });
+        </script>
+    </body>
+</html>
