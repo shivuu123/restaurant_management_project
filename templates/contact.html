@@ -10,7 +10,7 @@
             <form id="contactForm" method="POST" action="">
                 {% csrf_token %}
                 <label for="name">Name:</label><br>
-                <input type-"text" id="name" name="name"><br><br>
+                <input type="text" id="name" name="name"><br><br>
                 <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email"><br><br>
                 <label for="message">Message:</label><br>
@@ -18,7 +18,7 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-        <footer style="background-clor: #f8f8f8; padding: 10px; text-align: center; margin-top: 20px;">
+        <footer style="background-color: #f8f8f8; padding: 10px; text-align: center; margin-top: 20px;">
             &copy; {{ now|date:"Y" }} {{ restaurant_name }}. All rights are reserved.
             <p>Openeing Hours: Mon-Fri: 10am-10pm, Sat-Sun: 10am-10pm</p>
         </footer>
