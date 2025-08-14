@@ -77,6 +77,16 @@
         {% if phone_number %}
         <p> Contact us: {{ phone_number }}</p>
         {% endif %}
+        <h2>Contact Us</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
         </div>
         {% block content %}{% endblock %}
         <footer>
