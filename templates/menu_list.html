@@ -53,6 +53,8 @@
                <p> {{ item.description }}<br>
             <p class="price">${{ item.price }}   </p>
         </div>
+        {% empty %}
+        <p>No menu items available.</p>
             {% endfor %}
         </div>
     </body>
