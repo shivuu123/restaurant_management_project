@@ -7,3 +7,9 @@ def reservations_view(request):
 def menu_view(request):
     menu_items = MenuItem.objects.all()
     return render(request, "menu_list.html", {"menu_items": menu_items, "restaurant_name": "Your Restaurant Name"})
+
+def home(request):
+    context = {
+        'restaurant_name': settings.restaurant_name
+    }
+    return render(request, 'homepage.html')
