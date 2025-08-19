@@ -23,4 +23,8 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form':form})
+
+def menu(request):
+    items = MenuItem.objects.all()
+    return render(request, 'menu.html', {'items': items})
         
