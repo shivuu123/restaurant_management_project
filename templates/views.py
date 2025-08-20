@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import MenuItem
+from .models import RestaurantAddress
 
 def reservations_view(request):
     return render(request, 'reservations.html')
@@ -27,4 +28,8 @@ def contact_view(request):
 def menu(request):
     items = MenuItem.objects.all()
     return render(request, 'menu.html', {'items': items})
+
+def homepage(request):
+    address = RestaurantAddress.objects.first()
+    return render(request, 'homepage.html', {'address': address})
         
