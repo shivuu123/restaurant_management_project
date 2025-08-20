@@ -87,6 +87,15 @@
 
             <button type="submit">Submit</button>
         </form>
+        {% id address %}
+        <h2>Our address</h2>
+        <p>
+            {{ address.city }}, {{ address.state }} <br>
+            {{ address.zip_code }}
+        </p>
+        {% else %}
+        <p>Address not available.</p>
+        {% endif %}
         </div>
         {% block content %}{% endblock %}
         <footer>
