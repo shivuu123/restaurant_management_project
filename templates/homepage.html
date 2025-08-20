@@ -98,9 +98,9 @@
         {% endif %}
 
         <h2>Opening hours</h2>
-        {% if Restaurant.Opening_hours %}
+        {% if restaurant.Opening_hours %}
         <ul>
-            {% for day, time in restaurant.Openeing_hours.items %}
+            {% for day, time in restaurant.Opening_hours.items %}
             <li><strong>{{ day }}:</strong> {{ time }}</li>
             {% endfor %}
         </ul>
