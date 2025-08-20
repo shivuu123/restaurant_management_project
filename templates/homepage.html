@@ -96,6 +96,17 @@
         {% else %}
         <p>Address not available.</p>
         {% endif %}
+
+        <h2>Opening hours</h2>
+        {% if Restaurant.Opening_hours %}
+        <ul>
+            {% for day, time in restaurant.Openeing_hours.items %}
+            <li><strong>{{ day }}:</strong> {{ time }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Opening hours not available.</p>
+        {% endif %}
         </div>
         {% block content %}{% endblock %}
         <footer>
