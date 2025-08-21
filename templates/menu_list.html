@@ -49,6 +49,10 @@
         
             {% for item in menu %}
             <div class="menu-item">
+                {% if item.image %}
+                   <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width:200px; height:auto;">
+                {% endif %}
+
                 <strong>{{ item.name }}</strong>
                <p> {{ item.description }}<br>
             <p class="price">${{ item.price }}   </p>
