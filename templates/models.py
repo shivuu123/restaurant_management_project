@@ -21,6 +21,7 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=200)
     address = models.TextField()
     phone_number = models.CharField(max_length=15)
+    logo =models.ImageField(upload_to='logos/', blank=True, null=True)
 
     def __str__(self):
         return self.name
