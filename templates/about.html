@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>About</title></head>
-        <body style="font-family:sans-serif; text-align:center; padding:40px;">
-            <nav>
-                <a href="/" style="margin-right:15px;">Home</a>
-                <a href="/about/">About</a>
-            </nav>
-            <h1>About {{restaurant_name}}</h1>
-            <p>Welcome! we serve tasty food with love.</p>
-        </body>
+        <title>About {{ restaurant.name }}</title>
+    </head>
+    <body style="font-family:sans-serif; text-align:center; padding:40px;">
+        <h1>About {{ restaurant.name }}</h1>
+        {% if restaurant.logo %}
+            <img src="{{ restaurant.logo.url }}" alt="Restaurant Logo" style="max-width:200px;">
+        {% endif %}
+        <h2>Our History</h2>
+        <p>{{ restaurant.history }}</p>
+        <h2>Our Mission</h2>
+        <p>{{ restaurant.mission }}</p>
+        <p><a href="{% url 'homepage' %}">Back to Home</a></p>
+
+        
+    </body>
 </html>
