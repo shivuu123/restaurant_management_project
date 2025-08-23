@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import MenuItem
 from .models import RestaurantAddress
 from .models import Restaurant
+from django.conf import settings
 
 def reservations_view(request):
     return render(request, 'reservations.html')
@@ -44,4 +45,10 @@ def menu(request):
 def homepage(request):
     address = RestaurantAddress.objects.first()
     return render(request, 'homepage.html', {'address': address})
+
+def homepage(request):
+    context = {
+        'restaurant_phone': settings.RESTAURANT_PHONE 
+    }
+    return render(request, 'homepage.html', context)
         
