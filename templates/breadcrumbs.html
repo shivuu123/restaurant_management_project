@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+        <a href="{% url 'homepage' %}">Home</a>
+        {% if current_page %}{{ current_page }}{% enfif %}
+    </nav>
+    </body>
+</html>
