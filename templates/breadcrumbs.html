@@ -5,9 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <nav class="breadcrumbs">
-        <a href="{% url 'homepage' %}">Home</a>
-        {% if current_page %}{{ current_page }}{% endif %}
-    </nav>
+        <nav aria-label="breadcrumb">
+            <ol style="list-style:none; padding:0; display:flex; gap:5px;">
+                {% for name, url in breadcrumbs %}
+                <li>
+                    {% if url %}
+                    <a href="{{ url }}">{{ name }}</a>
+                    {% else %}
+                    <span>{{ name }}</span>
+                    {% endif %}
+                    {% if not forloop.last %} , {% endif %}
+                </li>
+                {% endfor %}
+            </ol>
+        </nav>
     </body>
 </html>
