@@ -27,3 +27,11 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+class OpeningHours(models.Model):
+    day = models.CharField(max_length)
+    open_time = models.TimeField()
+    close_time = models.TimeField()
+
+    def __str__(self):
+        return f"{self.day}: {self.open_time} - {self.close_time}"
