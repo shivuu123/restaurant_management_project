@@ -35,3 +35,5 @@ class OpeningHours(models.Model):
 
     def __str__(self):
         return f"{self.day}: {self.open_time} - {self.close_time}"
+
+
