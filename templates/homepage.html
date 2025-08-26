@@ -80,6 +80,13 @@
                 <button type="submit" class="search-btn">Search</button>
             </form>
 
+            <div class="food-gallery">
+                <img src="{% static 'images/food1.jpg' %}" alt="Tasty Pizza">
+                <img src="{% static 'images/food2.jpg' %}" alt="Pasta Dish">
+                <img src="{% static 'images/food3.jpg' %}" alt="Fresh Salad">
+                <img src="{% static 'images/food4.jpg' %}" alt="Dessert">
+            </div>
+
         {% if phone_number %}
             <p>Contact us: {{ phone_number }}</p>
         {% endif %}
