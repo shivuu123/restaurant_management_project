@@ -40,7 +40,7 @@
             <h1>Contact Us</h1>
             <form id="contactForm" method="POST" action="">
                 {% csrf_token %}
-
+                {{ form.as_p }}
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name"><br><br>
                 <label for="email">Email:</label><br>
