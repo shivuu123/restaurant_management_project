@@ -3,6 +3,7 @@ from .models import MenuItem
 from .models import RestaurantAddress
 from .models import Restaurant
 from django.conf import settings
+from .forms import Feedback
 
 def reservations_view(request):
     return render(request, 'reservations.html')
