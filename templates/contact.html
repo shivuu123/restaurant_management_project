@@ -40,6 +40,7 @@
             <h1>Contact Us</h1>
             <form id="contactForm" method="POST" action="">
                 {% csrf_token %}
+
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name"><br><br>
                 <label for="email">Email:</label><br>
@@ -64,7 +65,7 @@
         </div>
         <footer>
             &copy; {{ now|date:"Y" }} {{ restaurant_name }}. All rights are reserved.
-            <p>Openeing Hours: Mon-Fri: 10am-10pm, Sat-Sun: 10am-10pm</p>
+            <p>Opening Hours: Mon-Fri: 10am-10pm, Sat-Sun: 10am-10pm</p>
         </footer>
         <script>
             document.getElementById("contactForm").addEventListener("submit", function(event) {
