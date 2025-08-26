@@ -36,4 +36,12 @@ class OpeningHours(models.Model):
     def __str__(self):
         return f"{self.day}: {self.open_time} - {self.close_time}"
 
+class About(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='about/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
 
