@@ -75,6 +75,19 @@
             <p>Experience the authentic taste of World, right in your neighborhood</p>
             <p>Current Date and Time: {% now "D, d M Y H:i:s" %}</p>
 
+            <h2>Today's Specials</h2>
+            <ul>
+                {% for item in Specials %}
+                <li>
+                    <strong>{{ item.name }}</strong>
+                    {{ item.description }}
+                </li>
+                {% empty %}
+                <p>No Specials today.</p>
+                {% endfor %}
+            </ul>
+            
+
             <form method="GET" action="">
                 <input type="text" name="q" placeholder="Search menu items..." class="search-bar">
                 <button type="submit" class="search-btn">Search</button>
