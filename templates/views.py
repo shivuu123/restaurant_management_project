@@ -4,6 +4,7 @@ from .models import RestaurantAddress
 from .models import Restaurant
 from django.conf import settings
 from .forms import Feedback
+from datetime import datetime
 
 def reservations_view(request):
     return render(request, 'reservations.html')
@@ -52,4 +53,7 @@ def homepage(request):
         'restaurant_phone': settings.RESTAURANT_PHONE 
     }
     return render(request, 'homepage.html', context)
+
+def about(request):
+    return render(request, "about.html", {"current_year": datetime.now().year})
         
