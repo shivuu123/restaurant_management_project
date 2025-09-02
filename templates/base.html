@@ -5,7 +5,19 @@
         <title>{% block title %}My website{% endblock %}</title>
     </head>
     <body>
+        <header>
+            <h1>My Website</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+            </nav>
+        </header>
+        <nav>
+            {% block breadcrumb %}{% endblock %}
+        </nav>
+        <main>
         {% block content %}{% endblock %}
+        </main>
         <footer>
             <p>@ {{ current_year }} My website. All rights reserved.</p>
         </footer>
