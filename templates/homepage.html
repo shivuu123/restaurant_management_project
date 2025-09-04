@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{{ restaurant_name }}{% endblock %}</title>
+        <title>{{ page_title|default:"restaurant_name" }}</title>
      <style>
         body {
         background-color: #fafafa;
