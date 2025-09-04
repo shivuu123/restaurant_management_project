@@ -139,6 +139,16 @@
         </div>
 
         {% block content %}{% endblock %}
+
+        <h2>Subscribe to our Newsletter</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ from.email }}
+            <button type="submit">Subscribe</button>
+        </form>
+        {% if form.errors %}
+        <p>Please enter a valid email address.</p>
+        {% endif %}
         
         <footer>
             &copy; {{ now|date:"Y" }} {{ restaurant_name}}. All rights reserved.
