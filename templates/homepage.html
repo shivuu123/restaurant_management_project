@@ -99,7 +99,7 @@
                 <img src="{% static 'images/food3.jpg' %}" alt="Fresh Salad">
                 <img src="{% static 'images/food4.jpg' %}" alt="Dessert">
             </div>
-
+        </div>
         {% if phone_number %}
             <p>Contact us: {{ phone_number }}</p>
         {% endif %}
@@ -136,7 +136,7 @@
         {% else %}
         <p>Opening hours not available.</p>
         {% endif %}
-        </div>
+        
 
         {% block content %}{% endblock %}
 
@@ -155,5 +155,8 @@
             <p> 2025 Your Restaurant Name</p>
             <p>Openeing Hours: Mon-Fri: 11am-9pm, Sat-Sun: 10am-10pm</p>
         </footer>
+        <script>
+            document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        </script>
     </body>
 </html>
