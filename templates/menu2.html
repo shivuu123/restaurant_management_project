@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html
+<head>
+    <style>
+       #menu {
+       list-style:none; 
+       padding:0;
+       }
+
+       #menu li{
+       border:1px solid #ccc;
+       margin:5px;
+       padding:8px;
+       border-radius:5px;
+       }
+       
     <body>
-        <input id="s" placeholder="Search....">
-        <ul id="m">
+        <input type="text" id="search" placeholder="Search....">
+        <ul id="menu">
             <li>Pizza</li>
             <li>pasta</li>
             <li>Burger</li>
@@ -10,7 +24,12 @@
             <li>salad</li>
         </ul>
         <script>
-            s.oninput=()=>[...m.children].forEach(li=>li.style.display=li.textContent.toLowerCase().includes(s.value.toLowerCase())?"":"none");
+            const search = document.getElementById("search");
+            const items = document.querySelectorAll("#menu li");
+            search.oninput = () => {
+            const q = search.value.toLowerCase();
+            items.forEach(li => li.style.display = li.textContent.toLowerCase().includes(q) ? "" : "none");
+            };
             </script>
     </body>
 </html>
