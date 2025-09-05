@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="s" placeholder="Search....">
+        <ul id="m">
+            <li>Pizza</li>
+            <li>pasta</li>
+            <li>Burger</li>
+            <li>fries</li>
+            <li>salad</li>
+        </ul>
+        <script>
+            s.oninput=()=>[...m.children].forEach(li=>li.style.display=li.textContent.toLowerCase().includes(s.value.toLowerCase())?"":"none");
+            </script>
+    </body>
+</html>
