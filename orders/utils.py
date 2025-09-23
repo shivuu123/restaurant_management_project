@@ -1,7 +1,7 @@
 import string
 import secrets
 from django.db import models
-from django.core.mail import send_email
+from django.core.mail import send_mail
 
 class Coupon(models.Model):
     code = models.CharField(max_length=20, unique=True)
