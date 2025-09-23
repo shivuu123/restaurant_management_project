@@ -1,6 +1,6 @@
 from django.db import models
 
-class Restraunt(models.Model):
+class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     address = models.TextField()
     opening_days = models.CharField(
