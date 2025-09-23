@@ -19,7 +19,7 @@ class Order(models.Model):
     )
 
     def __str__(self):
-        return f"Order #{self.id} - {self.cusomer_name}"
+        return f"Order #{self.id} - {self.customer_name}"
 
 class ActiveOrderManager(models.Manager):
     def get_active_order(self):
