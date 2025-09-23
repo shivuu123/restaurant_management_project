@@ -25,7 +25,7 @@ def generate_coupon_code(length=10):
 
 def send_order_confirmation_email(order_id, email, name, amount):
     try:
-        send_email(
+        send_mail(
             subject=f"Order Confirmation #{order_id}",
             message=f"Hi {name}, your order #{order_id} is confirmed.\nTotal: ${amount}",
             from_email=None,
