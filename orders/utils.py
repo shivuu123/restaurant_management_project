@@ -1,6 +1,7 @@
 import string
 import secrets
 from django.db import models
+from django.core.mail import send_email
 
 class Coupon(models.Model):
     code = models.CharField(max_length=20, unique=True)
@@ -21,3 +22,16 @@ def generate_coupon_code(length=10):
         code = ''.join(secrets.choice(characters) for _ in range(length))
         if not Coupon.objects.filter(code=code).exists():
             return code
+
+def send_order_confirmation_email(order_id, email, name, amount):
+    try:
+        send_email(
+            subject=f"Order Confirmation #{order_id}",
+            message=f"Hi {name}, your order #{order_id} is confirmed.\nTotal: ${amount}",
+            from_email=None,
+            recipient_list=[email],
+        )
+        return True
+    except Exception:
+        return False
+
