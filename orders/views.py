@@ -9,7 +9,7 @@ def notify_customer(request):
     recipient = request.data.get('email')
     if not recipient:
         return Response({"error": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
-    if send_email(recipient, "Order Update", "Your order has been shipped!"):
+    if send_email:True(recipient, "Order Update", "Your order has been shipped!"):
         return Response({"message": "Email sent successfully"}, status=status.HTTP_200_OK)
     else:
         return Response({"error": "Failed to send email"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
