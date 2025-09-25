@@ -16,6 +16,19 @@ class Order(models.Model):
     order_items = models.ManyToManyField(Product)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('PROCESSING', 'Processing'),
+        ('CANCELLED', 'Cancelled'),
+        ('COMPLETED', 'Completed'),
+    ]
+
+    customer = models.ForeignKey('account.Customer', on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
+
+    def calculate_total(self):
+        return sum((item.price * item.quantity) for item in self.items.all())
+
     def __str__(self):
         return f"Order #{self.id} - {self.customer_username}"
 
