@@ -2,6 +2,7 @@ import string
 import secrets
 from django.db import models
 from django.core.mail import send_mail
+from .models import Order
 
 class Coupon(models.Model):
     code = models.CharField(max_length=20, unique=True)
@@ -34,4 +35,16 @@ def send_order_confirmation_email(order_id, email, name, amount):
         return True
     except Exception:
         return False
+
+def generate_unique_order_id(length=8):
+    """
+    Generate a unique short alphanumeric ID for an order.
+    Ensures no collisions in the database.
+    """
+
+    alphabet = string.ascii_uppercase + string.digits
+    while True:
+        new_id = ''.join(secrets.choice(alphabet) for _ in range(length))
+        if not Order.objects.filter(unique_id=new_id).exists():
+            return new_id
 
