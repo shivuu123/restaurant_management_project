@@ -1,7 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-from home.models import Product
-from decimal import decimal
+from decimal import Decimal
 from home.models import MenuItem
 
 
