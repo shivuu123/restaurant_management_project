@@ -24,17 +24,7 @@ def generate_coupon_code(length=10):
         if not Coupon.objects.filter(code=code).exists():
             return code
 
-def send_order_confirmation_email(order_id, email, name, amount):
-    try:
-        send_mail(
-            subject=f"Order Confirmation #{order_id}",
-            message=f"Hi {name}, your order #{order_id} is confirmed.\nTotal: ${amount}",
-            from_email=None,
-            recipient_list=[email],
-        )
-        return True
-    except Exception:
-        return False
+
 
 def generate_unique_order_id(length=8):
     """
