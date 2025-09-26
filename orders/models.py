@@ -1,6 +1,7 @@
 from django.db import models
 from decimal import Decimal
 from home.models import MenuItem
+from django.contrib.auth.models import User
 try:
     from orders.utils import calculate_discount
 except ImportError:
@@ -19,6 +20,7 @@ class Order(models.Model):
     order_items = models.ManyToManyField(Product)
     created_at = models.DateTimeField(auto_now_add=True)
     order_id = models.CharField(max_length=20, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 
