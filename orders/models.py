@@ -72,9 +72,8 @@ class OrderManager(models.Manager):
 
 class Order(models.Model):
     def calculate_total(self):
-        items = self.orderitem_set.all()
         total = sum(
-            calculate_discount(item) if callable(calculate_discount) else item.unit_price * item.quantity
-            for item in items 
+            (calculate_discount(item) if calculate_discount else item.unit_price * item.quantity)
+            for item in self.orderitem_set.all()
         )
-        return Decimal(total).quantize(Decimal('0.01'))
+        return round(total, 2)
