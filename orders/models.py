@@ -66,3 +66,12 @@ class OrderManager(models.Manager):
     def with_status(self, status):
         """Generic filter for any status."""
         return self.get_queryset().with_status(status)
+
+class Order(models.Model):
+    def calculate_total(self):
+        items = self.orderitem_set.all()
+        total = sum(
+            calculate_discount(item) if callable(calculate_discount) else item.unit_price * item.quantity
+            for item in items 
+        )
+        return Decimal(total).quantize(Decimal('0.01'))
