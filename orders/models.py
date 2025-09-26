@@ -1,7 +1,10 @@
 from django.db import models
 from decimal import Decimal
 from home.models import MenuItem
-
+try:
+    from orders.utils import calculate_discount
+except ImportError:
+    calculate_discount = None
 
 
 class OrderStatus(models.Model):
