@@ -31,6 +31,7 @@ class Order(models.Model):
 
     customer = models.ForeignKey('account.Customer', on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
+    
     def __str__(self):
         return f"Order {self.order_id} - {self.status}"
 
