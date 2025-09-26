@@ -49,3 +49,20 @@ class OrderItem(models.Model):
         if not self.price:
             self.price = self.menu_item.price
         super().save(*args, **kwargs)
+
+class OrderQuerySet(models.QuerySet):
+    def with_status(self, status):
+        """ Return orders with the given status."""
+        return self.filter(status=status)
+
+class OrderManager(models.Manager):
+    def get_queryset(self):
+        return OrderQuerySet(self.model, using=self._db)
+
+    def pending(self):
+        """Shortcut to get all pending orders."""
+        return self.get_queryset().with_status('pending')
+
+    def with_status(self, status):
+        """Generic filter for any status."""
+        return self.get_queryset().with_status(status)
