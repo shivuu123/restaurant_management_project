@@ -8,12 +8,11 @@ from .models import Table
 from .serializers import TableSerializer
 
 class MenuItemByCategoryView(APIView):
-    def get(self, request):
-        category = request.query_params.get('category')
-        if not category:
-            return Response({"error": "Category is required."}, status=400)
-        items = MenuItem.objects.filter(category__name__iexact=category)
-        return Response(MenuItemSerializer(items, many=True).data)
+    def get(self, request, category_id, *args, **kwargs):
+        items = MenuItem.objects.filter(category_id=category_id)
+        serializer = MenuItemSerializer(items, many=True)
+        return Response(serializer.data)
+       
 
     
 class AvailableTablesAPIView(ListAPIView):
