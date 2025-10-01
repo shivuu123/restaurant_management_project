@@ -38,7 +38,7 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.order_id} - {self.status}"
 
-    def calculate_total_price(order_items):
+    def calculate_total_price(self):
         return sum((item.price * item.quantity) for item in self.items.all())
 
     def __str__(self):
