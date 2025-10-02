@@ -40,6 +40,9 @@ def generate_unique_order_id(length=8):
             return new_id
 
 def get_daily_sales_total(d):
+
+    """Return total sales for a given date."""
+    
     return Order.objects.filter(created_at__date=d).aggregate(s=Sum("total_price"))["s"] or 0
 
 
