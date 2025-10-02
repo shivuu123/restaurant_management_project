@@ -25,8 +25,6 @@ def generate_coupon_code(length=10):
         if not Coupon.objects.filter(code=code).exists():
             return code
 
-
-
 def generate_unique_order_id(length=8):
     """
     Generate a unique short alphanumeric ID for an order.
@@ -44,6 +42,15 @@ def get_daily_sales_total(d):
     """Return total sales for a given date."""
     
     return Order.objects.filter(created_at__date=d).aggregate(s=Sum("total_price"))["s"] or 0
+
+def update_order_status(order_id, new_status):
+    try:
+        order = Order.objects.get(id=order_id)
+        order.status = new_status
+        order.save()
+        return True
+    except Order.DoesNotExist:
+        return False
 
 
 
