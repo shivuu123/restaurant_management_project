@@ -3,6 +3,7 @@ import secrets
 from django.db import models
 from django.core.mail import send_mail
 from .models import Order
+from django.db.models import Sum
 
 class Coupon(models.Model):
     code = models.CharField(max_length=20, unique=True)
@@ -37,4 +38,9 @@ def generate_unique_order_id(length=8):
         new_id = ''.join(secrets.choice(alphabet) for _ in range(length))
         if not Order.objects.filter(unique_id=new_id).exists():
             return new_id
+
+def get_daily_sales_total(d):
+    return Order.objects.filter(created_at__date=d).aggregate(s=Sum("total_price"))["s"] or 0
+
+
 
