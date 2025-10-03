@@ -18,3 +18,11 @@ def notify_customer(request):
 
 def menu_home(request):
     return render(request, 'menu.html')
+// code represents
+
+@api_view(["GET"])
+def get_order_status(request, order_id):
+    order = Order.objects.filter(id=order_id.first())
+    if not order:
+        return Response({"error":"Order not found"}, status=404)
+    return Response({"order_id": order.id, "status": order.status})
