@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.response import Response 
 from rest_framework.decorators import api_view
 from .utils import send_email
-
+from .models import Order
 @api_view(['POST'])
 def notify_customer(request):
     recipient = request.data.get('email')
