@@ -18,7 +18,7 @@ def notify_customer(request):
 
 def menu_home(request):
     return render(request, 'menu.html')
-// code represents
+
 
 @api_view(["GET"])
 def get_order_status(request, order_id):
