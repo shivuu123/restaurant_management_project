@@ -7,6 +7,7 @@ class MenuItem(models.Model):
     price = models.DecimalField(max_length=6, decimal_places=2)
     image = models.imageField(upload_to='menu_images/', blank=True, null=True)
     is_daily_special = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
