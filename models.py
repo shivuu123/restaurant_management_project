@@ -48,4 +48,22 @@ class UserReview(models.Model):
     def __str__(self):
         return f"Review by {self.user.username} for {self.menu_item.name} - {self.rating}"
 
+class Reservation(models.Model):
+    customer_name = models.CharField(max_length=100)
+    table_number = models.IntegerField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    @classmethod
+    def find_available_slots(cls, start, end, slot=timedelta(hours=1)):
+        booked = cls.objects.filter(start_time__It=end, end_time__g=start).order_by('start_time')
+        free, now = [], start
+        for b in booked:
+            if now + slot <= b.start_time:
+                free.append((now, b.start_time))
+            now = max(now, b.end_time)
+        if now + slot <= end:
+            free.append((now, end))
+        return free
+
 
