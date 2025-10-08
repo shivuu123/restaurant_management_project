@@ -56,6 +56,10 @@ class Reservation(models.Model):
 
     @classmethod
     def find_available_slots(cls, start, end, slot=timedelta(hours=1)):
+        """
+        Returns a list of available time slots between start and end.
+        Each slot is a tuple: (slot_start, slot_end)
+        """ 
         booked = cls.objects.filter(start_time__lt=end, end_time__g=start).order_by('start_time')
         free, now = [], start
         for b in booked:
