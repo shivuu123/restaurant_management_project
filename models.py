@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class MenuItem(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
@@ -19,13 +20,13 @@ class RestaurantLocation(models.Model):
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
 
-
     def __str__(self):
         return f"{self.name}, {self.address}, {self.city}, {self.state}, {self.zip_code}"
 
 class MenuCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, null=True)
+
     def __str__(self):
         return self.name
 
