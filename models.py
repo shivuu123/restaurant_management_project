@@ -13,13 +13,15 @@ class MenuItem(models.Model):
         return self.name
 
 class RestaurantLocation(models.Model):
+    name = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
 
+
     def __str__(self):
-        return f"{self.address}, {self.city}, {self.state}, {self.zip_code}"
+        return f"{self.name}, {self.address}, {self.city}, {self.state}, {self.zip_code}"
 
 class MenuCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
