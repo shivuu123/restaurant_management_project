@@ -1,5 +1,3 @@
-import datetime
-
 def calculate_total_price(order_items):
     if not order_items:
         return 0.0
