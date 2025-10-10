@@ -9,6 +9,10 @@ class MenuItem(models.Model):
     image = models.imageField(upload_to='menu_images/', blank=True, null=True)
     is_daily_special = models.BooleanField(default=False)
     is_available = models.BooleanField(default=True)
+    discount = models.FloatFiels(default=0.0)
+
+    def get_final_price(self):
+        return float(self.price) * (1 - self.discount / 100)
 
     def __str__(self):
         return self.name
