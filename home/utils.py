@@ -17,3 +17,11 @@ def is_valid_email(email: str) -> bool:
     email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
 
     return bool(re.match(email_regex, email))
+
+def calculate_discount(price, discount):
+    try:
+        if price < 0 or discount < 0 or discount > 100:
+            return 0.0
+        return round(price * (1 - discount / 100), 2)
+    except:
+        return 0.0
