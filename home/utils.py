@@ -13,6 +13,6 @@ def is_valid_email(email: str) -> bool:
     Returns:
         bool: True if valid, False otherwise.
     """
-    email_regex = r'^[a-zA-Z0-9,_%+-]+@[a-ZA-Z0-9,-]+\.[a-ZA-Z]{2,}$'
+    email_regex = r'^[a-ZA-Z0-9,_%+-]+@[a-ZA-Z0-9,-]+\.[a-ZA-Z]{2,}$'
 
     return bool(re.match(email_regex, email))
