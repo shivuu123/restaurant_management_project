@@ -87,4 +87,18 @@ class Review(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.rating}/5"
 
+class Restaurant(models.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=200, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_total_menu_items(self):
+        """
+        Returns the total number of items in the database.
+        """
+        from .models import MenuItem
+        return MenuItem.objects.count()
+
 
