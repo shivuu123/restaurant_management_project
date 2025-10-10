@@ -7,5 +7,5 @@ class RestaurantReviewListView(generics.ListAPIView):
     serializer_class = ReviewSerializer
     pagination_class = PageNumberPagination
 
-    def get_query(self):
+    def get_queryset(self):
         return Review.objects.filter(restaurant_id=self.kwargs['restaurant_id']).order_by('_created_at')
