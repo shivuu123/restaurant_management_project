@@ -10,6 +10,7 @@ class MenuItem(models.Model):
     is_daily_special = models.BooleanField(default=False)
     is_available = models.BooleanField(default=True)
     discount = models.FloatField(default=0.0)
+    image_url = models.URLField(blank=True, null=True)
 
     def get_final_price(self):
         return float(self.price) * (1 - self.discount / 100)
