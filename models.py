@@ -103,12 +103,12 @@ class Restaurant(models.Model):
 
 class OpeningHours(models.Model):
     DAY_CHOICES = [
-        ('Monday', 'Monday')
-        ('Tuesday', 'Tuesday')
-        ('Wednesday', 'Wednesday')
-        ('Thursday', 'Thursday')
-        ('Friday', 'Friday')
-        ('Saturday', 'Saturday')
+        ('Monday', 'Monday'),
+        ('Tuesday', 'Tuesday'),
+        ('Wednesday', 'Wednesday'),
+        ('Thursday', 'Thursday'),
+        ('Friday', 'Friday'),
+        ('Saturday', 'Saturday'),
         ('Sunday', 'Sunday')
 
     ]
