@@ -109,7 +109,7 @@ class OpeningHours(models.Model):
         ('Thursday', 'Thursday'),
         ('Friday', 'Friday'),
         ('Saturday', 'Saturday'),
-        ('Sunday', 'Sunday')
+        ('Sunday', 'Sunday'),
 
     ]
     day = models.CharField(max_length=10, choices=DAY_CHOICES, unique=True)
