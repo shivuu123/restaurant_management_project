@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Table
 from .models import MenuCategory
 from .models import UserReview
+from .models import MenuItem
 
 class TableSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,4 +24,9 @@ class UserReviewSerializer(serializers.ModelSerializer):
         if value < 1 or value > 5:
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
+
+class MenuCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MenuItem
+        fields = ['id', 'name', 'description', 'price', 'image', 'availability']
 
