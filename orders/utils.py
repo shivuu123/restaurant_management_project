@@ -53,5 +53,15 @@ def update_order_status(order_id, new_status):
     except Order.DoesNotExist:
         return False
 
+def calculate_discount(order_total, discount_percentage):
+    try:
+        order_total = float(order_total)
+        discount_percentage = float(discount_percentage)
+        if order_total < 0 or discount_percentage < 0:
+            raise ValueError
+    except(ValueError, TypeError):
+        raise ValueError("Invalid input: both values must be positive numbers.")
+    return round(order_total * (discount_percentage / 100), 2)
+
 
 
