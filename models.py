@@ -90,6 +90,9 @@ class Review(models.Model):
 class Restaurant(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=200, blank=True, null=True)
+    opening_time = models.TimeField()
+    closing_time = models.TimeField()
+    timezone = models.CharField(max_length=50, default='EST')
 
     def __str__(self):
         return self.name
