@@ -8,7 +8,7 @@ class MenuItem(models.Model):
     price = models.FloatField()
     image = models.imageField(upload_to='menu_images/', blank=True, null=True)
     is_daily_special = models.BooleanField(default=False)
-    is_available = models.BooleanField(default=True)
+    availability = models.BooleanField(default=True)
     discount = models.FloatField(default=0.0)
     image_url = models.URLField(blank=True, null=True)
 
