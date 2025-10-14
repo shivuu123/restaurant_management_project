@@ -60,7 +60,7 @@ def calculate_discount(order_total, discount_percentage):
         if order_total < 0 or discount_percentage < 0:
             raise ValueError("Values must be positive")
         return round(order_total * (discount_percentage / 100), 2)
-    except(ValueError, TypeError):
+    except (ValueError, TypeError):
         print("Invalid Input")
         return 0.0
 
