@@ -21,7 +21,7 @@ class AvailableTablesAPIView(ListAPIView):
     def get_queryset(self):
         return Table.objects.filter(is_available=True)
 
-class TableDetailAPIView(RetrieveAPIview):
+class TableDetailAPIView(RetrieveAPIView):
     queryset = Table.objects.all()
     serializer_class = TableSerializer
 
