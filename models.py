@@ -11,12 +11,17 @@ class MenuItem(models.Model):
     availability = models.BooleanField(default=True)
     discount = models.FloatField(default=0.0)
     image_url = models.URLField(blank=True, null=True)
+    cuisine_type = models.CharField(max_length=50)
 
     def get_final_price(self):
         return float(self.price) * (1 - self.discount / 100)
 
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def filter_by_cuisine(cls, cuisine_type):
+        return cls.objects.filter(cuisine_type__iexact=cuisine_type)
 
 class RestaurantLocation(models.Model):
     name = models.CharField(max_length=100)
