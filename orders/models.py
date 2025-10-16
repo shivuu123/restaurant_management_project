@@ -22,8 +22,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     order_id = models.CharField(max_length=20, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-
+    complete = models.BooleanField(default=True)
 
     STATUS_CHOICES = [
         ('PENDING', 'Pending'),
@@ -32,13 +31,15 @@ class Order(models.Model):
         ('COMPLETED', 'Completed'),
     ]
 
-
     customer = models.ForeignKey('account.Customer', on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     short_id = models.CharField(max_length=20, unique=True)
     
     def __str__(self):
         return f"Order {self.short_id} - {self.status}"
+(
+    def get_total_item_count_self):
+        return sum(item.quantity for otem in self.orderitem_set.all())
         
     @staticmethod
     def calculate_total_price(self):
