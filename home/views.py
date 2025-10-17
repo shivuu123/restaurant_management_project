@@ -31,7 +31,7 @@ def menu_item_availability(request, pk):
         item = MenuItem.objects.get(id=pk)
         return Response({"id": item.id, "name": item.name, "available": item.availability})
     except MenuItem.DoesNotExist:
-        return Response({"error": "Menu item npt found."}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "Menu item not found."}, status=status.HTTP_404_NOT_FOUND)
 
 class AvailableMenuItemView(generics.ListAPIView):
     serializer_class = MenuItemSerializer
