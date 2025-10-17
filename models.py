@@ -126,3 +126,10 @@ class OpeningHours(models.Model):
     def __str__(self):
         return f"(self.day): {self.opening_time} - {self.closing_time}"
 
+class FAQ(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question
+
