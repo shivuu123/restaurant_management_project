@@ -12,9 +12,7 @@ class MenuItemByCategoryView(APIView):
         items = MenuItem.objects.filter(category_id=category_id)
         serializer = MenuItemSerializer(items, many=True)
         return Response(serializer.data)
-       
-
-    
+           
 class AvailableTablesAPIView(ListAPIView):
     serializer_class = TableSerializer
 
