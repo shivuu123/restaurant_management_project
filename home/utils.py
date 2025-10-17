@@ -25,3 +25,12 @@ def calculate_discount(price, discount):
         return round(price * (1 - discount / 100), 2)
     except:
         return 0.0
+
+def format_phone_number(num):
+    try:
+        digits = re.sub(r'\D', '', str(num))
+        if len(digits) < 10:
+            return "Invalid number"
+        return f"+91 ({digits[-10:-7]}) {digits[-7:-4]}-{digits[-4:]}"
+    except:
+        return "Error"
