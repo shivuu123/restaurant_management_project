@@ -2,6 +2,7 @@ from django.db import models
 from decimal import Decimal
 from home.models import MenuItem
 from django.contrib.auth.models import User
+from django.db.models import Sum
 
 try:
     from orders.utils import calculate_discount
@@ -21,7 +22,7 @@ class Order(models.Model):
     order_items = models.ManyToManyField(Product)
     created_at = models.DateTimeField(auto_now_add=True)
     order_id = models.CharField(max_length=20, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     complete = models.BooleanField(default=True)
 
     STATUS_CHOICES = [
@@ -37,7 +38,7 @@ class Order(models.Model):
     
     def __str__(self):
         return f"Order {self.short_id} - {self.status}"
-(
+
     def get_total_item_count(self):
         return sum(item.quantity for item in self.orderitem_set.all())
         
@@ -45,6 +46,9 @@ class Order(models.Model):
     def calculate_total_price(self):
         return sum((item.price * item.quantity) for item in self.items.all())
 
+    @classmethod
+    def calculate_total_revenue(cls):
+        return cls.objects.filter(status='Completed').aggregate(Sum('total_amount'))['total_amount__sum'] or 0
     def __str__(self):
         return f"Order #{self.id} - {self.customer_username}"
 
